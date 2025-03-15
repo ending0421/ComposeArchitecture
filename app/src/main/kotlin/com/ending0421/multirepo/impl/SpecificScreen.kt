@@ -14,7 +14,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.ending0421.multirepo.base.MResult
 import com.ending0421.multirepo.data.BannerApiData
 import org.koin.androidx.compose.koinViewModel
 
