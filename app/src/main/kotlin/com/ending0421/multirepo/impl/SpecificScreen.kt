@@ -14,6 +14,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.ending0421.multirepo.base.APIResult
 import com.ending0421.multirepo.data.BannerApiData
 import org.koin.androidx.compose.koinViewModel
 
@@ -24,7 +25,7 @@ fun SpecificScreen(
     val dataState by viewModel.data.collectAsState()
     val specificErrorState by viewModel.specificError.collectAsState()
     when (dataState) {
-        is MResult.Loading -> {
+        is APIResult.Loading -> {
             Box(
                 contentAlignment = Alignment.Center, modifier = Modifier.fillMaxSize()
             ) {
@@ -32,8 +33,8 @@ fun SpecificScreen(
             }
         }
 
-        is MResult.Success -> {
-            val data = (dataState as MResult.Success<BannerApiData>).data
+        is APIResult.Success -> {
+            val data = (dataState as APIResult.Success<BannerApiData>).data
             Column(
                 modifier = Modifier
                     .fillMaxSize()
@@ -46,15 +47,15 @@ fun SpecificScreen(
             }
         }
 
-        is MResult.Error -> {
+        is APIResult.Error -> {
             // Handle specific errors if needed
-            val error = (dataState as MResult.Error<*>).error
+            val error = (dataState as APIResult.Error).error
             when (error) {
-                is SpecificErrorType.SpecificBusinessError -> {
+                is SpecificRepoError.SpecificBusinessRepoError -> {
 
                 }
 
-                is SpecificErrorType.UnknownSpecificError -> {
+                is SpecificRepoError.UnknownSpecificRepoError -> {
 
                 }
             }
@@ -74,8 +75,8 @@ fun SpecificScreen(
     }
 
     when (specificErrorState) {
-        is SpecificErrorType.SpecificBusinessError -> {
-            val error = specificErrorState as SpecificErrorType.SpecificBusinessError
+        is SpecificRepoError.SpecificBusinessRepoError -> {
+            val error = specificErrorState as SpecificRepoError.SpecificBusinessRepoError
             Box(
                 contentAlignment = Alignment.Center, modifier = Modifier.fillMaxSize()
             ) {
@@ -86,7 +87,7 @@ fun SpecificScreen(
             }
         }
 
-        is SpecificErrorType.UnknownSpecificError -> {
+        is SpecificRepoError.UnknownSpecificRepoError -> {
             Box(
                 contentAlignment = Alignment.Center, modifier = Modifier.fillMaxSize()
             ) {
@@ -101,6 +102,7 @@ fun SpecificScreen(
             // Initial state
         }
 //        }
+        SpecificRepoError.UnknownSpecificRepoError -> TODO()
     }
 
     LaunchedEffect(Unit) {

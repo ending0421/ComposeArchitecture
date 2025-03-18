@@ -15,11 +15,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import com.ending0421.multirepo.base.CommonRepoError
 import kotlinx.coroutines.flow.StateFlow
 
 @Composable
 fun CommonErrorDisplayView(
-    commonError: StateFlow<CommonErrorType?>, content: @Composable () -> Unit
+    commonError: StateFlow<CommonRepoError?>, content: @Composable () -> Unit
 ) {
     val errorState by commonError.collectAsState()
 

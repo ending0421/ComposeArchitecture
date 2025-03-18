@@ -2,7 +2,6 @@ package com.ending0421.multirepo
 
 import android.app.Application
 import com.ending0421.multirepo.di.appModule
-import com.ending0421.multirepo.di.networkModule
 import com.ending0421.multirepo.di.repositoryModule
 import com.ending0421.multirepo.di.useCaseModule
 import com.ending0421.multirepo.di.viewModelModule
@@ -17,7 +16,6 @@ class DemoApp : Application() {
             modules(
                 listOf(
                     appModule,
-                    networkModule,
                     repositoryModule,
                     useCaseModule,
                     viewModelModule
