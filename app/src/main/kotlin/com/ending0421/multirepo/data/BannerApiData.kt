@@ -1,12 +1,11 @@
 package com.ending0421.multirepo.data
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
-
+@Serializable
 data class BannerApiData(
-
-    @SerializedName("data") var data: ArrayList<Banner> = arrayListOf(),
-    @SerializedName("errorCode") var errorCode: Int? = null,
-    @SerializedName("errorMsg") var errorMsg: String? = null
-
+    @SerialName("data") var data: ArrayList<Banner> = arrayListOf(),
+    @SerialName("errorCode") var errorCode: Int? = null,
+    @SerialName("errorMsg") var errorMsg: String? = null
 )

@@ -1,17 +1,16 @@
 package com.ending0421.multirepo.data
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
-
+@Serializable
 data class Banner(
-
-    @SerializedName("desc") var desc: String? = null,
-    @SerializedName("id") var id: Int? = null,
-    @SerializedName("imagePath") var imagePath: String? = null,
-    @SerializedName("isVisible") var isVisible: Int? = null,
-    @SerializedName("order") var order: Int? = null,
-    @SerializedName("title") var title: String? = null,
-    @SerializedName("type") var type: Int? = null,
-    @SerializedName("url") var url: String? = null
-
+    @SerialName("desc") var desc: String? = null,
+    @SerialName("id") var id: Int? = null,
+    @SerialName("imagePath") var imagePath: String? = null,
+    @SerialName("isVisible") var isVisible: Int? = null,
+    @SerialName("order") var order: Int? = null,
+    @SerialName("title") var title: String? = null,
+    @SerialName("type") var type: Int? = null,
+    @SerialName("url") var url: String? = null
 )
